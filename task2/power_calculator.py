@@ -26,3 +26,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# 0의 0제곱
