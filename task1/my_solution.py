@@ -1,6 +1,6 @@
 import flask
 
-def hello():
+def hello() ->  str:
     return "Hello"
 result = hello()
 print(result)
