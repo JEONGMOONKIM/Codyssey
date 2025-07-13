@@ -1,39 +1,81 @@
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        print("Error: Division by zero.")
+        return None
+    return a / b
+
+
 def main():
-    try:
-        a = int(input("Enter num1: "))
-    except ValueError:
-        print("Invalid number input.")
-        return
+    # try:
+    #     a = int(input("Enter num1: "))
+    # except ValueError:
+    #     print("Invalid number input.")
+    #     return
+
+    # try:
+    #     b = int(input("Enter num2: "))
+    # except ValueError:
+    #     print("Invalid number input.")
+    #     return
+
+    # operator = input("Enter operator: ")
+
+    # if operator == "+":
+    #     result = add(a, b)
+    # elif operator == "-":
+    #     result = subtract(a, b)
+    # elif operator == "*":
+    #     result = multiply(a, b)
+    # elif operator == "/":
+    #     result = divide(a, b)
+    #     if result is None:
+    #         return
+    # else:
+    #     print("Invalid operator.")
+    #     return
+
+    # print(f"Result: <{result}>")
+
+    enter_expression = input("Enter expression: ")
 
     try:
-        b = int(input("Enter num2: "))
-    except ValueError:
-        print("Invalid number input.")
-        return
+        parts = enter_expression.strip().split()
+        # parts = enter_expression.strip().split(maxsplit=2)
+        if len(parts) != 3:
+            print("Invalid expression.")
+            return
 
-    operator = input("Enter operator: ")
+        a_str, operator, b_str = parts
+        a = int(a_str)
+        b = int(b_str)
 
-    if operator not in {"+", "-", "*", "/"}:
-        print("Invalid operator.")
-        return
-
-    try:
         if operator == "+":
-            result = a + b
+            result = add(a, b)
         elif operator == "-":
-            result = a - b
+            result = subtract(a, b)
         elif operator == "*":
-            result = a * b
+            result = multiply(a, b)
         elif operator == "/":
-            if b == 0:
-                print("Error: Division by zero.")
+            result = divide(a, b)
+            if result is None:
                 return
-            result = a / b
+        else:
+            print("Invalid expression.")
+            return
 
-        print(f"Result: &lt;{result}&gt1;")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"Result: <{result}>")
+    
+    except ValueError:
+        print("Invalid expression.")
 
 if __name__ == "__main__":
     main()
