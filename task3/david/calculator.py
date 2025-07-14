@@ -8,13 +8,12 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
-    if b == 0:
-        print("Error: Division by zero.")
-        return None
     return a / b
 
 
 def main():
+    assert(1 < 0)
+
     # try:
     #     a = int(input("Enter num1: "))
     # except ValueError:
@@ -44,6 +43,8 @@ def main():
     #     return
 
     # print(f"Result: <{result}>")
+    
+
 
     enter_expression = input("Enter expression: ")
 
@@ -66,8 +67,6 @@ def main():
             result = multiply(a, b)
         elif operator == "/":
             result = divide(a, b)
-            if result is None:
-                return
         else:
             print("Invalid expression.")
             return
@@ -76,6 +75,9 @@ def main():
     
     except ValueError:
         print("Invalid expression.")
+    except ZeroDivisionError:
+        print("Error: Division by zero.")
+        
 
 if __name__ == "__main__":
     main()

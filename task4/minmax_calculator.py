@@ -1,5 +1,5 @@
 def main():
-    numbers = list(map(float, input("Enter numbers: ").split()))
+    numbers = map(float(input("Enter numbers: ")).split())
     min_val = numbers[0]
     max_val = numbers[0]
 
