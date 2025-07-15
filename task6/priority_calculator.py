@@ -54,7 +54,6 @@ def main():
                 number[i] = add(number[i], number[i+1])
             elif operator[i] == "-":
                 number[i] = subtract(number[i], number[i+1])
-
             del number[i+1]
             del operator[i]
             break
